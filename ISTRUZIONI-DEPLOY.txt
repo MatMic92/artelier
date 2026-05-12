@@ -1,0 +1,71 @@
+================================================================================
+  ARTELIER — Sito statico | Deploy GRATUITO (Vercel, Netlify, GitHub Pages)
+================================================================================
+
+Questa cartella ("artelier-web") è già un sito pronto: index.html + assets/.
+I percorsi sono RELATIVI (es. assets/css/main.css): vanno bene anche su
+GitHub Pages con URL tipo https://TUOUSER.github.io/NOMEREPO/
+
+--------------------------------------------------------------------------------
+  OPZIONE A — Vercel (consigliata, veloce, HTTPS incluso)
+--------------------------------------------------------------------------------
+
+1. Crea un account gratuito su https://vercel.com (puoi usare GitHub).
+
+2. Metodo senza Git (più semplice):
+   - Installa Node.js se non ce l’hai: https://nodejs.org
+   - Apri PowerShell in QUESTA cartella (artelier-web), poi esegui:
+        cd percorso\artelier-web
+        npx vercel
+     (Su PowerShell usa ; tra comandi, non &&)
+   - Segui le domande: accedi al browser quando richiesto, conferma il
+     progetto. Alla fine ti dà un URL tipo https://qualcosa.vercel.app
+
+3. Metodo con GitHub (aggiorni il sito ad ogni push):
+   - Crea un repository GitHub vuoto.
+   - Copia il contenuto di artelier-web nella radice del repo (o rendi
+     artelier-web la radice del repo).
+   - Push su GitHub.
+   - Su Vercel: "Add New Project" → Importa il repo → Framework: Other,
+     Root Directory: / (default), Build: nessuno, Output: stessa cartella.
+   - Deploy: ottieni URL *.vercel.app gratuito.
+
+4. Dominio personalizzato (facoltativo, lo paghi solo se compri il dominio):
+   - Vercel → Project → Settings → Domains → aggiungi il tuo dominio e
+     segui le istruzioni DNS (spesso gratis se usi un sottodominio incluso
+     in qualche servizio; il dominio di secondo livello si compra a parte).
+
+--------------------------------------------------------------------------------
+  OPZIONE B — Netlify (drag & drop, zero terminale)
+--------------------------------------------------------------------------------
+
+1. Account gratuito: https://www.netlify.com
+2. Trascina questa cartella (artelier-web) nell’area "Deploy manually".
+3. Ricevi subito un URL *.netlify.app
+
+Il file netlify.toml è già incluso per la pubblicazione dalla cartella corrente.
+
+--------------------------------------------------------------------------------
+  OPZIONE C — GitHub Pages (tutto gratuito con il tuo repo GitHub)
+--------------------------------------------------------------------------------
+
+1. Crea un repo e carica QUI il contenuto di artelier-web come radice del repo.
+
+2. Su GitHub: Settings → Pages → Build and deployment → Source:
+   seleziona "GitHub Actions".
+
+3. Fai un push sul branch main (o master): il workflow in
+   .github/workflows/github-pages.yml pubblicherà il sito.
+
+4. L’URL sarà tipo: https://TUOUSER.github.io/NOMEREPO/
+
+--------------------------------------------------------------------------------
+  Nota su meta tag (Open Graph / canonical)
+--------------------------------------------------------------------------------
+
+In index.html ci sono riferimenti a https://www.artelier.it/ come esempio.
+Quando avrai l’URL reale (vercel.app, netlify.app o dominio tuo), conviene
+aggiornare in index.html i tag: canonical, og:url, og:image, e rigenerare
+da build_site.py se parti ancora da artelier_site5.html.
+
+================================================================================
